@@ -11,9 +11,9 @@ app.use(express.urlencoded({ extended: false })); // <--- middleware configurati
 
 // Connection to the PostgreSQL database
 const dbConfig = {
-  user:"postgres",
-  database:"postgres",
-  password:"acer",
+  user:"nekupgtwmwbgqn",
+  database:"deo0aitlu24asv",
+  password:"deea71d33aac047a493f2f1bdb87d6804862c3e31a2011e41c1e73810d90219e",
   port:5432,
 }
 
