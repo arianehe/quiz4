@@ -10,15 +10,18 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
 
 // Connection to the PostgreSQL database
-const dbConfig = {
-  user:"nekupgtwmwbgqn",
-  database:"deo0aitlu24asv",
-  password:"deea71d33aac047a493f2f1bdb87d6804862c3e31a2011e41c1e73810d90219e",
-  host:"ec2-34-206-8-52.compute-1.amazonaws.com",
-  port:5432,
-}
 
-const pool = new Pool(dbConfig)
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+
+
+
 const sql_create = `CREATE TABLE IF NOT EXISTS Books (
   Book_ID SERIAL PRIMARY KEY,
   Title VARCHAR(100) NOT NULL,
