@@ -11,10 +11,10 @@ app.use(express.urlencoded({ extended: false })); // <--- middleware configurati
 
 // Connection to the PostgreSQL database
 const dbConfig = {
-  path:"ec2-34-206-8-52.compute-1.amazonaws.com",
   user:"nekupgtwmwbgqn",
   database:"deo0aitlu24asv",
   password:"deea71d33aac047a493f2f1bdb87d6804862c3e31a2011e41c1e73810d90219e",
+  host:"ec2-34-206-8-52.compute-1.amazonaws.com",
   port:5432,
 }
 
