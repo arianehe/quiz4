@@ -20,8 +20,6 @@ const pool = new Pool({
 });
 
 
-
-
 const sql_create = `CREATE TABLE IF NOT EXISTS Books (
   Book_ID SERIAL PRIMARY KEY,
   Title VARCHAR(100) NOT NULL,
@@ -58,9 +56,26 @@ pool.query(sql_insert, [], (err, result) => {
 });
 
 // Starting the server
-app.listen(3000, () => {
-  console.log("Server started (http://localhost:3000/) !");
+var port = normalizePort(process.env.PORT || 3000);
+app.listen(port, function () {
+  console.log("listening on port: 3000")
 });
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
 
 // GET /
 app.get("/", (req, res) => {
